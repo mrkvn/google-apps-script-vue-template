@@ -1,5 +1,5 @@
 import vue from "@vitejs/plugin-vue";
-import { resolve } from "path";
+import path, { resolve } from "path";
 import { defineConfig } from "vite";
 import { viteSingleFile } from "vite-plugin-singlefile";
 
@@ -9,5 +9,10 @@ export default defineConfig({
     build: {
         minify: true,
         outDir: resolve(__dirname, "dist/ui"),
+    },
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, "src"),
+        },
     },
 });
